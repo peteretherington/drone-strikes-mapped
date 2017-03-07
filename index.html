@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="css/base.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:200,400,700,900" rel="stylesheet">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+	<!-- <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"> -->
+
+<!-- ************************************************ -->
+	<title>US Drone Strikes Mapped</title>
+<!-- ************************************************ -->
+
+</head>
+<body>
+
+<!-- ************************************************ -->
+
+	<header>
+		<div class="wrapper">
+			<h1 class="title">U.S. <span class="blue">Drone</span> <span class="red">Strikes</span> <span class="italic">Mapped</span></h1>
+			<h2 class="subTitle">
+				A <a href="http://hackeryou.com/">HackerYou</a> bootcamp project combining
+				<a href="http://joshbegley.com/">Josh Begley's</a>
+				<a href="http://dronestre.am/">Dronestream API</a> with
+				<a href="https://developers.google.com/maps/">Google Maps</a>
+			</h2>
+			<div class="listWrapper">
+				<div class="instructionsWrapper">	
+					<h3 class="instructions">Instructions</h3>
+					<ol>
+						<li>Choose a year. <span class="note">NOTE: no strikes were reported in 2003</span></li>
+						<li>Choose a country. <span class="note">optional</span></li>
+						<li>Click on the map to use it.</li>
+						<li>Click on a marker to get more info.</li>
+						<li>Scroll down to see the full results. <span class="note">Search the results by using CMD+F (Mac) or CTRL+F (Windows) and entering the Strike Log #</span></li>
+					</ol>
+				</div> <!-- instructions wrapper -->
+				<div class="usefulInfoWrapper">
+					<h3 class="usefulInfo">Useful Info</h3>
+					<ul >
+						<li>This data base does not contain every drone strike ever launched by the United States, only those that were reported by <a href="https://www.thebureauinvestigates.com/">The Bureau of Investigative Journalism</a>.</li>
+						<!-- <li>Presidents are inaugurated on January 20th of their first year in office</li> -->
+						<li><span class="red">George Bush</span> was the U.S. President from 2001-2009.</li>
+						<li><span class="blue">Barrack Obama</span> was the U.S. President from 2009-2017.</li>
+						<li><span class="red">Donald Trump</span>, inaugurated on January 20th of this year, is the current President of the United States. <span class="note">In case you didn't know.</span></li>
+					</ul>
+				</div> <!-- useful info wrapper -->
+			</div> <!-- list wrapper -->
+		</div> <!-- wrapper -->
+	</header>
+
+<!-- ************************************************ -->
+
+	<form action="" id="form">
+		<fieldset id="yearSelection">
+			<h3 class="fieldsetHeader">Date</h3>
+			<label for="year">
+				<span class="inputHeader">Year:</span>
+				<input type="range" id="year" value="2002" min="2002" max="2017" onchange="droneApp.updateYearInput(this.value);">
+				<input type="text" id="inputYear" placeholder="2002" ="" maxlength="4">
+				<span class="yearRange">(2002-2017)</span>
+			</label>
+		</fieldset>
+		<fieldset id="countrySelection">
+			<h3 class="fieldsetHeader">Country</h3>
+			<label for="Pakistan">Pakistan:
+				<input type="radio" id="Pakistan" name="country">
+			</label>
+			<label for="Yemen">Yemen:
+				<input type="radio" id="Yemen" name="country">
+			</label>
+			<label for="Somalia">Somalia:
+				<input type="radio" id="Somalia" name="country">
+			</label>
+			<label for="all">All:
+				<input type="radio" id="all" name="country" checked>
+			</label>
+		</fieldset>
+	</form>
+
+<!-- ************************************************ -->
+
+	<section>
+		<div class="overlay" onClick="style.pointerEvents='none'">
+		<!-- Prevents scroll wheel zoom over map -->
+		</div>
+		<div id="map">
+		<!-- Google map api appended here -->
+		</div> <!-- Google Map -->
+		<div id="droneInfo" class="wrapper">
+		<!-- Drone strike data appended here -->
+		</div> <!-- Drone Info -->
+	</section>
+
+<!-- ************************************************ -->
+
+	<footer>
+		<div class="wrapper">
+			<p class="copyright">
+				&copy 2017 Peter Etherington 
+				<a href="https://twitter.com/peter_jge" class="twitter">
+					<i class="fa fa-twitter" aria-hidden="true"></i>
+				</a>
+			</p>
+		</div> <!-- wrapper -->
+	</footer>
+
+<!-- ************************************************ -->
+	
+	<!-- jQuery CDN -->
+	<script
+	  src="https://code.jquery.com/jquery-3.1.1.min.js"
+	  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	  crossorigin="anonymous">
+	</script>
+
+	<!-- Google Maps -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPTUF5UBBbiSrVI6Y-zzsNoQ1M9Mgmn1w">
+	</script>
+	
+	<!-- Script -->
+	<script src="script.js"></script>
+
+
+<!-- ************************************************ -->
+</body>
+</html>
+<!-- ************************************************ -->
